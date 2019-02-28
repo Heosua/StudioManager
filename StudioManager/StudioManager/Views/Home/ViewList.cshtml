@@ -1,0 +1,56 @@
+﻿@model IEnumerable<StudioManager.Models.StudioOrder>
+
+@{
+    ViewData["Title"] = "ViewList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="text-success" style="font-family:'Times New Roman'">Danh sách đơn</h3>
+
+@using (Html.BeginForm())
+{ 
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phonenumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phonenumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    <a asp-action="Delete">Delete</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+}
+
+
